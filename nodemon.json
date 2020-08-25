@@ -1,0 +1,8 @@
+{
+    "verbose": true,
+    "execMap": {
+        "js": "node",
+        "pegjs": "npx pegjs"
+    },
+    "watch": ["./index.js", "./test.pegjs"]
+}
