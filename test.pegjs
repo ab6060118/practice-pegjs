@@ -1,17 +1,13 @@
-start
-  = additive
+start = p:PROJECT_STM ORDER_STM*
 
-additive
-  = left:multiplicative "+" right:additive { return left + right; }
-  / multiplicative
+PROJECT_STM = PROJECT EQUAL KEYWORD
+PROJECT = "project"i
+EQUAL = ws? '=' / ws 'equal'i
+KEYWORD = ws str:[A-Za-z0-9]+ {return str.join('')}
 
-multiplicative
-  = left:primary "*" right:multiplicative { return left * right; }
-  / primary
+ORDER_STM = ORDER ws PROJECT (ASC / DESC)','?
+ORDER = ws "order by"i
+ASC = ws "asc"i
+DESC = ws "desc"i
 
-primary
-  = integer
-  / "(" additive:additive ")" { return additive; }
-
-integer "integer"
-  = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
+ws = [ \n\t\r]+

@@ -1,3 +1,3 @@
 var { parse } = require('./test')
 
-console.log(parse('2*(1+2)'))
+console.log(parse('project     equal  test order by PROJECT asc, order by PROJECT desc'))
