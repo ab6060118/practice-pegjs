@@ -1,3 +1,3 @@
 var { parse } = require('./test')
 
-console.log(parse('project     equal  test order by PROJECT asc, order by PROJECT desc'))
+console.log(JSON.stringify(parse('project is not a and updateDate < 2 and assignee = 2 or project = 3'), null, 2))
